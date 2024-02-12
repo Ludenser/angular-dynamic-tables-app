@@ -1,0 +1,24 @@
+nz-dropdown-menu {
+  margin-right: 10px;
+}
+
+nz-dropdown-menu text {
+  color: black
+}
+
+.flag-icon {
+  border-radius: 50%;
+  width: 30px;
+  height: auto;
+  object-fit: cover;
+  margin-right: 6px;
+  border: 0.5px solid gray;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  padding: 0 8px;
+}

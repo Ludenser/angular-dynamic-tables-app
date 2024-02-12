@@ -1,0 +1,34 @@
+<form nz-form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <nz-form-item *ngFor="let controlName of objectKeys(editForm.controls)">
+    <nz-form-label nzLabelWrap nzSpan="7">{{ controlName }}</nz-form-label>
+    @if (controlName === 'date') {
+    <nz-form-control [nzSpan]="16" *ngIf="controlName === 'date'">
+      <input nz-input [formControlName]="controlName" type="date" />
+    </nz-form-control>
+    }
+    @else {
+    <nz-form-control [nzSpan]="16">
+      <input nz-input [formControlName]="controlName" />
+    </nz-form-control>
+    }
+    @if (controlName === 'descriptionImages') {
+
+    <nz-form-control>
+      <div>
+        <button nz-icon style="margin-top: 0;" nz-button>
+          <span nz-icon nzType="plus"></span>
+          Загрузить
+        </button>
+      </div>
+    </nz-form-control>
+    }
+  </nz-form-item>
+  <div *ngIf="editForm.invalid && editForm.touched">
+    <span nz-typography nzType="danger">В записи не должно быть пустых полей!</span>
+  </div>
+  <nz-form-control nzSpan="5" style="text-align: center">
+    <button nz-button nzType="primary" [disabled]="!editForm.valid">
+      {{ data.mode === 'add' ? 'Добавить' : 'Сохранить изменения' }}
+    </button>
+  </nz-form-control>
+</form>

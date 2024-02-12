@@ -1,0 +1,12 @@
+<nz-dropdown-menu #languageMenu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item *ngFor="let lang of languages" (click)="changeLanguage(lang.code)">
+      <img [src]="lang.flagUrl" alt="Flag" class="flag-icon">
+      <a>{{ lang.name }}</a>
+    </li>
+  </ul>
+</nz-dropdown-menu>
+<a nz-dropdown [nzDropdownMenu]="languageMenu" class="language-selector">
+  <img [src]="getCurrentFlagUrl()" alt="Current Flag" class="flag-icon">
+  {{ currentLanguage }}
+</a>

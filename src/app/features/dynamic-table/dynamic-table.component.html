@@ -1,0 +1,61 @@
+<div class="table-container">
+  <ng-template #tableHeaderTemplate>
+    <div class="table-title">
+      <div class="table-title-actions">
+        <button nz-button nzShape="round" nzType="primary" (click)="onAdd()">
+          <span nz-icon nzType="plus"></span>
+          Создать
+        </button>
+        <button nz-button nzShape="round" nzType="default" (click)="reloadCurrentData()">
+          <span nz-icon nzType="reload"></span>
+          Обновить
+        </button>
+      </div>
+    </div>
+  </ng-template>
+  <nz-table #rowSelectionTable [nzTitle]="tableHeaderTemplate" [nzData]="(tableDataService.filteredData$ | async) ?? []"
+    [nzFrontPagination]="false" [nzLoading]="(isLoading$ | async) ?? false" [nzShowPagination]="true"
+    [nzTotal]="tableDataService.total" [nzPageSize]="(tableDataService.pageSize$ | async) ?? 10"
+    [nzPageIndex]="(tableDataService.currentPage$ | async) ?? 1"
+    (nzPageIndexChange)="tableDataService.onPageChange($event)"
+    (nzPageSizeChange)="tableDataService.onPageSizeChange($event)" nzShowSizeChanger [nzShowTotal]="totalTemplate">
+
+    <thead>
+      <tr>
+        <th nzShowCheckbox [nzChecked]="(allChecked$ | async) ?? false"
+          [nzIndeterminate]="(indeterminate$ | async) ?? false" (nzCheckedChange)="onAllChecked($event)"></th>
+        <ng-container *ngFor="let col of filters$ | async">
+          <th [nzFilters]="col.filterList ?? []" [nzFilterFn]="null"
+            (nzFilterChange)="tableDataService.onFilterChange(col.key, $event)">
+            {{ col.title }}
+          </th>
+        </ng-container>
+        <th nzWidth="85px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of tableDataService.filteredData$ | async; let i = index">
+        <td nzShowCheckbox [nzChecked]="row.checked ?? false" (nzCheckedChange)="onItemChecked(row, $event)"></td>
+        <ng-container *ngFor="let col of filters$ | async">
+          <td>{{ row[col.key] }}</td>
+        </ng-container>
+        <td nzAlign='right'>
+          <a class="info-icon" nz-icon style="font-size: 24px;" nzType="info-circle" nzTheme="outline"
+            (click)="onOpenInfo(row)"></a>
+          <nz-dropdown-menu #dropdownMenu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item (click)="onEdit(row)">Изменить</li>
+              <li nz-menu-item (click)="onCopy(row)">Копировать</li>
+              <li nz-menu-item nzDanger (click)="onDelete(i)">Удалить</li>
+            </ul>
+          </nz-dropdown-menu>
+          <a nz-icon nzType="more" style="font-size: 24px;" [nzRotate]=90 nzTheme="outline"
+            [nzDropdownMenu]="dropdownMenu" nz-dropdown nzTrigger="click"></a>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+  <ng-template #totalTemplate let-total let-range="range">
+    Записей {{range[0]}} - {{range[1]}} из {{total}}
+  </ng-template>
+</div>

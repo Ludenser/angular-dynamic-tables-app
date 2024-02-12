@@ -1,0 +1,34 @@
+.wrapper {
+  width: 100%;
+}
+
+.carousel-wrapper {
+  padding: 10px;
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+}
+
+[nz-carousel-content] {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #fff;
+  color: #fff;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+.nz-carousel .slick-slide {
+  text-align: center;
+  height: auto;
+  line-height: normal;
+}
+
+[nz-carousel-content] img {
+  max-width: 100%;
+  margin: auto;
+  height: auto;
+  object-fit: contain;
+}

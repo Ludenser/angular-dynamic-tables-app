@@ -1,0 +1,18 @@
+<nz-dropdown-menu #profileMenu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="changePassword()">
+      <a>Смена пароля</a>
+    </li>
+    <li nz-menu-item (click)="logout()">
+      <a>Выход</a>
+    </li>
+  </ul>
+</nz-dropdown-menu>
+<a nz-dropdown [nzDropdownMenu]="profileMenu" class="profile-selector">
+  @if (profile.avatarUrl) {
+  <nz-avatar [nzSrc]="profile.avatarUrl"></nz-avatar> Профиль
+  }
+  @else {
+  <nz-avatar nzIcon="user"></nz-avatar> Профиль
+  }
+</a>

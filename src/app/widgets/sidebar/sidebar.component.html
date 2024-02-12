@@ -1,0 +1,40 @@
+<ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed$ | async">
+  <li nz-submenu nzClose nzTitle="Заказы" nzIcon="deployment-unit">
+    <ul>
+      <li nz-menu-item nzMatchRouter [routerLink]="[paths.ordersCompleted]">
+        <a>Завершенные</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-menu-item nzMatchRouter>
+    <span nz-icon nzType="deployment-unit"></span>
+    <span [routerLink]="[paths.stock]">Стоки</span>
+  </li>
+  <li nz-submenu nzClose nzTitle="Артикулы" nzIcon="deployment-unit">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="[paths.articlesNodes]">Узлы</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="[paths.articles]">Артикулы</a>
+      </li>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="[paths.articlesTypes]">Типы артикулов</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu nzClose nzTitle="Зона хранения" nzIcon="deployment-unit">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="[paths.storageArea]">Список</a>
+      </li>
+    </ul>
+  </li>
+  <li nz-submenu nzClose nzTitle="Контрагенты" nzIcon="deployment-unit">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a [routerLink]="[paths.contractors]">Список</a>
+      </li>
+    </ul>
+  </li>
+</ul>

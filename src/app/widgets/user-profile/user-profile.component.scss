@@ -1,0 +1,16 @@
+.profile-avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+nz-avatar {
+  margin-right: 6px;
+}
+
+.profile-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px;
+}

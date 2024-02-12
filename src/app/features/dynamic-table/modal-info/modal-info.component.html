@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div *ngIf="images && images.length > 0" class="carousel-wrapper">
+    <nz-carousel nzDotPosition="bottom">
+      @for (index of images; track index) {
+      <div nz-carousel-content>
+        <img nz-image width="100%" height="100%" [nzSrc]="index" [nzFallback]="fallback" alt="img" />
+      </div>
+      }
+    </nz-carousel>
+  </div>
+  <div *ngFor="let detail of details">
+    <h4>{{ detail.key }}</h4>
+    <p>{{ detail.value }}</p>
+  </div>
+</div>

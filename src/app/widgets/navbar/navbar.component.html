@@ -1,0 +1,14 @@
+<div class="navbar" [ngClass]="{'navbar-login-page': !isLoginPage}">
+  @if (isLoginPage) {
+  <span class="navbar-trigger" (click)="toggleCollapse()">
+    <span class="trigger" nz-icon [nzType]="(isCollapsed$ | async) ? 'menu-unfold' : 'menu-fold'"></span>
+  </span>
+  }
+  <div class="navbar-right" [ngClass]="{'navbar-right-login-page': !isLoginPage}">
+    <showcase-language-switcher style="margin-right: 10px;"></showcase-language-switcher>
+    @if (isLoginPage) {
+    <nz-divider class="divider" nzType="vertical"></nz-divider>
+    <showcase-user-profile></showcase-user-profile>
+    }
+  </div>
+</div>

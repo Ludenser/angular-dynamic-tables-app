@@ -1,0 +1,31 @@
+<div class="login-wrapper">
+  <nz-card class="login-card">
+    <form nz-form [formGroup]="loginForm" (ngSubmit)="login()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="user">
+            <input type="text" nz-input placeholder="Username" formControlName="username" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input placeholder="Password" formControlName="password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-control nzSpan="30" style="text-align: center">
+        <button nz-button nzType="primary" nzBlock type="submit"
+          [disabled]="loginForm.invalid || loginForm.pending || (isLoading$ | async)"
+          [nzLoading]="(isLoading$ | async)">Log in</button>
+      </nz-form-control>
+      @if (errorMessage) {
+      <nz-alert nzType="error" [nzMessage]="errorMessage" nzShowIcon></nz-alert>
+      }
+      @if (successMessage) {
+      <nz-alert nzType="success" [nzMessage]="successMessage" nzShowIcon></nz-alert>
+      }
+    </form>
+  </nz-card>
+</div>

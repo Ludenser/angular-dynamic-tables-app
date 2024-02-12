@@ -1,0 +1,43 @@
+.navbar-trigger {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 20px 24px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .3s,padding 0s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 64px;
+  padding: 0 24px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+}
+
+.navbar-login-page {
+  flex-direction: row-reverse
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 130px;
+}
+
+.navbar-right-login-page {
+  margin-right: 4.3rem;
+}
+
+.divider {
+  height: 2.2em;
+}

@@ -1,0 +1,16 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+
+  .login-card {
+    border-radius: 25px;
+    width: 320px;
+    box-shadow: 0px 0px 19px -5px rgba(34, 60, 80, 0.15);
+  }
+}
+
+nz-alert {
+  margin-top: 16px;
+}
