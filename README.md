@@ -1,27 +1,54 @@
-# TestTask
+# Your Application Name
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
+This README provides the necessary information to get your application up and running. The application utilizes Angular for the frontend and a JSON Server for simulating a backend API.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Before you begin, ensure you have the following installed on your system:
 
-## Code scaffolding
+- **Node.js** (Latest stable version recommended)
+- **npm** (Node Package Manager), usually installed with Node.js
+- **Angular CLI** (Can be installed globally with npm)
+- **Node Foreman (nf)**, for managing processes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If Angular CLI is not installed, you can install it using the following command:
 
-## Build
+```bash
+npm install -g @angular/cli
+```
+To install Node Foreman, use the following command:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
 
-## Running unit tests
+npm install -g foreman
+```
+Installation
+First, clone the repository or download the source code of the application to your local machine. Then navigate to the application directory and install the required dependencies using npm:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
 
-## Running end-to-end tests
+cd path_to_your_application
+npm install
+This will install all dependencies listed in the package.json file.
+```
+Running the Application
+After installing the dependencies, you can run the application using Node Foreman. In the root directory of your application, create a Procfile (without any file extension) that contains instructions for starting your application and the development server. Here's an example of what the Procfile might look like:
+```Procfile
+web: npm run start
+api: npm run start:dev:server
+```
+This tells Node Foreman to run the Angular application (web) and the JSON Server (api) as separate processes.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Now, you can start the application using the following command:
 
-## Further help
+```bash
+nf start
+```
+This command will start both the frontend and backend parts of your application. After starting, you can access your application through a web browser, usually at http://localhost:4200, and the API will be available at http://localhost:3000, unless configured otherwise.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Other Available Scripts
+In your package.json, there are also additional scripts available for development and building the application:
+
+ng build to build the project. The build artifacts will be stored in the dist/ directory.
+ng serve for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+ng build --watch --configuration development to build the project and watch for changes, using the development configuration.
