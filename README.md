@@ -1,4 +1,4 @@
-# Your Application Name
+# Angular-test-app
 
 This README provides the necessary information to get your application up and running. The application utilizes Angular for the frontend and a JSON Server for simulating a backend API.
 
